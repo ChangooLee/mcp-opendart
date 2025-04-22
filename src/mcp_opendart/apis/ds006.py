@@ -1,6 +1,6 @@
 from typing import Dict, Any, Optional, List
 
-from opendart.client import OpenDartClient
+from ..apis.client import OpenDartClient
 
 
 class SecuritiesFilingAPI:

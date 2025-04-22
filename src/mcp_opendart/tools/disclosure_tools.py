@@ -1,7 +1,7 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from mcp.server.fastmcp import Context
 
-from opendart_mcp.server import mcp
+from ..server import mcp
 
 @mcp.tool()
 def get_corporation_code_by_name(ctx: Context, corp_name: str) -> Dict[str, Any]:

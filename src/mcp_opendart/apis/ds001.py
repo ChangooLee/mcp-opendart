@@ -1,6 +1,6 @@
 from typing import Dict, Any, Optional, List
 
-from opendart.client import OpenDartClient
+from ..apis.client import OpenDartClient
 
 
 class DisclosureAPI:
@@ -13,7 +13,7 @@ class DisclosureAPI:
         """
         기업명으로 고유번호 검색
         """
-        from opendart.utils.corp_code_search import read_local_xml, parse_corp_code_xml, search_corporations
+        from ..utils.corp_code_search import read_local_xml, parse_corp_code_xml, search_corporations
         
         try:
             xml_content = read_local_xml()

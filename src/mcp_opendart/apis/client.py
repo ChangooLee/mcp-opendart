@@ -3,8 +3,10 @@ from urllib.parse import urljoin
 import json
 import logging
 from typing import Dict, Any, Optional
+import zipfile
+import io
 
-from config import OPENDART_API_KEY, OPENDART_BASE_URL
+from ..config import opendart_config, OpenDartConfig
 
 # 로거 설정
 logger = logging.getLogger(__name__)
@@ -12,14 +14,15 @@ logger = logging.getLogger(__name__)
 class OpenDartClient:
     """OpenDART API 클라이언트"""
     
-    def __init__(self, api_key: str = OPENDART_API_KEY, base_url: str = OPENDART_BASE_URL):
-        self.api_key = api_key
-        self.base_url = base_url
+    def __init__(self, config: Optional[OpenDartConfig] = None):
+        self.config = config or opendart_config
+        self.api_key = self.config.api_key
+        self.base_url = self.config.base_url
         
         if not self.api_key:
             raise ValueError("OpenDART API 키가 설정되지 않았습니다.")
     
-    def _make_request(self, endpoint: str, params: Dict[str, Any] = None, method: str = "GET") -> Dict[str, Any]:
+    def _make_request(self, endpoint: str, params: Optional[Dict[str, Any]] = None, method: str = "GET") -> Dict[str, Any]:
         """API 요청을 보내고 응답을 반환합니다."""
         if params is None:
             params = {}
@@ -30,11 +33,11 @@ class OpenDartClient:
         url = urljoin(self.base_url, endpoint)
         
         # 디버그 로깅 추가
-        print(f"\n=== API 요청 정보 ===")
-        print(f"URL: {url}")
-        print(f"Method: {method}")
-        print(f"Parameters: {params}")
-        print("====================")
+        logger.debug(f"\n=== API 요청 정보 ===")
+        logger.debug(f"URL: {url}")
+        logger.debug(f"Method: {method}")
+        logger.debug(f"Parameters: {params}")
+        logger.debug("====================")
         
         try:
             if method.upper() == "GET":
@@ -45,12 +48,12 @@ class OpenDartClient:
                 raise ValueError(f"지원하지 않는 HTTP 메서드: {method}")
             
             # 응답 로깅 추가
-            print(f"\n=== API 응답 정보 ===")
-            print(f"상태 코드: {response.status_code}")
-            print(f"Content-Type: {response.headers.get('Content-Type', '없음')}")
+            logger.debug(f"\n=== API 응답 정보 ===")
+            logger.debug(f"상태 코드: {response.status_code}")
+            logger.debug(f"Content-Type: {response.headers.get('Content-Type', '없음')}")
             if "application/json" in response.headers.get("Content-Type", ""):
-                print(f"응답 내용: {response.text}")
-            print("====================")
+                logger.debug(f"응답 내용: {response.text}")
+            logger.debug("====================")
             
             response.raise_for_status()
             
@@ -73,8 +76,6 @@ class OpenDartClient:
             else:
                 # 응답이 zip 파일인지 확인
                 try:
-                    import zipfile
-                    import io
                     zip_file = zipfile.ZipFile(io.BytesIO(response.content))
                     return {
                         "status": "000",
@@ -92,15 +93,15 @@ class OpenDartClient:
             logger.error(f"API 요청 실패: {str(e)}")
             return {"error": str(e), "status_code": getattr(e.response, 'status_code', None)}
     
-    def get(self, endpoint: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
+    def get(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """GET 요청을 수행합니다."""
         return self._make_request(endpoint, params, "GET")
     
-    def post(self, endpoint: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
+    def post(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """POST 요청을 수행합니다."""
         return self._make_request(endpoint, params, "POST")
 
-    def download(self, endpoint: str, params: Dict[str, Any] = None) -> Dict[str, Any]:
+    def download(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         파일을 다운로드합니다.
         
@@ -124,10 +125,10 @@ class OpenDartClient:
             response.raise_for_status()
             
             # 디버그 로깅 추가
-            print(f"\n=== API 응답 정보 ===")
-            print(f"상태 코드: {response.status_code}")
-            print(f"Content-Type: {response.headers.get('Content-Type', '없음')}")
-            print("====================")
+            logger.debug(f"\n=== API 응답 정보 ===")
+            logger.debug(f"상태 코드: {response.status_code}")
+            logger.debug(f"Content-Type: {response.headers.get('Content-Type', '없음')}")
+            logger.debug("====================")
             
             # 응답 내용 반환
             return {

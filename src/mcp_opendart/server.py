@@ -3,9 +3,9 @@ import logging
 import os
 from collections.abc import AsyncGenerator, Sequence
 from contextlib import asynccontextmanager
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 
-from fastmcp import FastMCP, Context
+from fastmcp import FastMCP
 from mcp.types import TextContent
 from pydantic import Field
 
@@ -57,11 +57,29 @@ async def opendart_lifespan(app: FastMCP) -> AsyncGenerator[dict[str, Any], None
     finally:
         logger.info("Shutting down OpenDART FastMCP server...")
 
-# Create the OpenDART FastMCP instance
+# Create the main FastMCP instance
 mcp = FastMCP(
-    "OpenDART",
-    description="Tools for interacting with OpenDART API",
+    "OpenDART MCP",
+    description="OpenDART tools and resources for interacting with DART system",
     lifespan=opendart_lifespan,
 )
+
+async def run_server(
+    transport: Literal["stdio", "sse"] = "stdio",
+    port: int = 8000,
+) -> None:
+    """Run the MCP OpenDART server.
+
+    Args:
+        transport: The transport to use. One of "stdio" or "sse".
+        port: The port to use for SSE transport.
+    """
+    if transport == "stdio":
+        # Use the built-in method for stdio transport
+        await main_mcp.run_stdio_async()
+    elif transport == "sse":
+        # Use FastMCP's built-in SSE runner
+        logger.info(f"Starting server with SSE transport on http://0.0.0.0:{port}")
+        await main_mcp.run_sse_async(host="0.0.0.0", port=port)  # noqa: S104
 
 # Tool implementations will be added here

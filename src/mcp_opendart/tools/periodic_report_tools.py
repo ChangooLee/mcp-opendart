@@ -1,7 +1,7 @@
 from typing import Dict, Any, List
 from mcp.server.fastmcp import Context
 
-from opendart_mcp.server import mcp
+from ..server import mcp
 
 @mcp.tool(
     name="get_stock_increase_decrease",
