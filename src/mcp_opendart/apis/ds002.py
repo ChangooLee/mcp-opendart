@@ -358,7 +358,7 @@ class PeriodicReportAPI:
         reprt_code: str
     ) -> Dict[str, Any]:
         """
-        감사인의 감사의견을 조회합니다.
+        회계감사인의 명칭 및 감사의견
         https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020009
         
         Args:
