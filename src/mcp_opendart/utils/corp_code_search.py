@@ -5,9 +5,9 @@ from pathlib import Path
 
 def read_local_xml() -> str:
     """Read the local CORPCODE.xml file."""
-    # Get the absolute path of the project root
-    project_root = Path(__file__).parent.parent.parent
-    file_path = project_root / 'opendart' / 'utils' / 'data' / 'CORPCODE.xml'
+    # Get the path relative to the current file
+    current_dir = Path(__file__).parent
+    file_path = current_dir / 'data' / 'CORPCODE.xml'
     
     with open(file_path, 'r', encoding='utf-8') as f:
         return f.read()

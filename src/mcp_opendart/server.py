@@ -3,6 +3,7 @@ import logging
 import os
 from collections.abc import AsyncGenerator, Sequence
 from contextlib import asynccontextmanager
+from dataclasses import dataclass
 from typing import Annotated, Any, Literal
 
 from fastmcp import FastMCP
@@ -15,6 +16,16 @@ from .apis import ds001, ds002, ds003, ds004, ds005, ds006
 
 # 로거 설정
 logger = logging.getLogger("mcp-opendart")
+@dataclass
+class OpenDartContext:
+    client: OpenDartClient
+    ds001: ds001.DisclosureAPI
+    ds002: ds002.PeriodicReportAPI
+    ds003: ds003.FinancialInfoAPI
+    ds004: ds004.OwnershipDisclosureAPI
+    ds005: ds005.MajorReportAPI
+    ds006: ds006.SecuritiesFilingAPI
+
 
 @asynccontextmanager
 async def opendart_lifespan(app: FastMCP) -> AsyncGenerator[dict[str, Any], None]:
@@ -64,6 +75,12 @@ mcp = FastMCP(
     lifespan=opendart_lifespan,
 )
 
+# Register tool modules (ensure all @mcp.tool decorators run)
+import importlib
+for module_name in ["disclosure_tools", "financial_info_tools", "major_report_tools",
+                    "ownership_disclosure_tools", "periodic_report_tools", "securities_filing_tools"]:
+    importlib.import_module(f"mcp_opendart.tools.{module_name}")
+
 async def run_server(
     transport: Literal["stdio", "sse"] = "stdio",
     port: int = 8000,
@@ -76,10 +93,10 @@ async def run_server(
     """
     if transport == "stdio":
         # Use the built-in method for stdio transport
-        await main_mcp.run_stdio_async()
+        await mcp.run_stdio_async()
     elif transport == "sse":
         # Use FastMCP's built-in SSE runner
         logger.info(f"Starting server with SSE transport on http://0.0.0.0:{port}")
-        await main_mcp.run_sse_async(host="0.0.0.0", port=port)  # noqa: S104
+        await mcp.run_sse_async(host="0.0.0.0", port=port)  # noqa: S104
 
 # Tool implementations will be added here

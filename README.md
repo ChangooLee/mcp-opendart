@@ -1,6 +1,6 @@
 # MCP OpenDART
 
-![License](https://img.shields.io/github/license/sooperset/mcp-opendart)
+![License](https://img.shields.io/github/license/ChangooLee/mcp-opendart)
 
 Model Context Protocol (MCP) server for OpenDART (Korea Financial Supervisory Service's Data Analysis, Retrieval and Transfer System). This integration supports secure access to financial data through OpenDART's API system.
 
