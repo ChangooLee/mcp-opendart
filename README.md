@@ -101,7 +101,7 @@ Note: Common environment variables include:
         "HOST": "0.0.0.0",
         "PORT": "8000",
         "LOG_LEVEL": "INFO",
-        "MCP_SERVER_NAME": "opendart-mcp"
+        "MCP_SERVER_NAME": "mcp-opendart"
       }
     }
   }
@@ -118,7 +118,7 @@ OPENDART_BASE_URL=https://opendart.fss.or.kr/api/
 HOST=0.0.0.0
 PORT=8000
 LOG_LEVEL=INFO
-MCP_SERVER_NAME=opendart-mcp
+MCP_SERVER_NAME=mcp-opendart
 ```
 
 2. Update your configuration:
