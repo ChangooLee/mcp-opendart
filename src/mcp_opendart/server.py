@@ -8,16 +8,18 @@ from typing import Annotated, Any, Literal
 
 from fastmcp import FastMCP
 from mcp.types import TextContent
+from mcp.server.session import ServerSession
 from pydantic import Field
 
 from .config import OpenDartConfig, MCPConfig
 from .apis.client import OpenDartClient
 from .apis import ds001, ds002, ds003, ds004, ds005, ds006
+from typing import AsyncIterator
 
 # 로거 설정
 logger = logging.getLogger("mcp-opendart")
 @dataclass
-class OpenDartContext:
+class OpenDartContext(ServerSession):
     client: OpenDartClient
     ds001: ds001.DisclosureAPI
     ds002: ds002.PeriodicReportAPI
@@ -28,7 +30,7 @@ class OpenDartContext:
 
 
 @asynccontextmanager
-async def opendart_lifespan(app: FastMCP) -> AsyncGenerator[dict[str, Any], None]:
+async def opendart_lifespan(app: FastMCP) -> AsyncIterator[OpenDartContext]:
     """Lifespan manager for the OpenDART FastMCP server.
 
     Creates and manages the OpenDartClient instance and API modules.
@@ -49,22 +51,22 @@ async def opendart_lifespan(app: FastMCP) -> AsyncGenerator[dict[str, Any], None
         client = OpenDartClient(config=opendart_config)
         
         # API 모듈 초기화
-        ctx = {
-            "client": client,
-            "ds001": ds001.DisclosureAPI(client),
-            "ds002": ds002.PeriodicReportAPI(client),
-            "ds003": ds003.FinancialInfoAPI(client),
-            "ds004": ds004.OwnershipDisclosureAPI(client),
-            "ds005": ds005.MajorReportAPI(client),
-            "ds006": ds006.SecuritiesFilingAPI(client),
-        }
+        ctx = OpenDartContext(
+            client=client,
+            ds001=ds001.DisclosureAPI(client),
+            ds002=ds002.PeriodicReportAPI(client),
+            ds003=ds003.FinancialInfoAPI(client),
+            ds004=ds004.OwnershipDisclosureAPI(client),
+            ds005=ds005.MajorReportAPI(client),
+            ds006=ds006.SecuritiesFilingAPI(client)
+        )
         
         logger.info("OpenDART client and API modules initialized successfully.")
         yield ctx
         
     except Exception as e:
         logger.error(f"Failed to initialize OpenDART client: {e}", exc_info=True)
-        yield {}
+        raise
     finally:
         logger.info("Shutting down OpenDART FastMCP server...")
 

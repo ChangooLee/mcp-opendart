@@ -60,7 +60,8 @@ class OpenDartClient:
             # 응답 형식에 따라 처리
             content_type = response.headers.get("Content-Type", "")
             if "application/json" in content_type:
-                return response.json()
+                data: Dict[str, Any] = response.json()
+                return data
             elif "application/zip" in content_type or "application/x-zip-compressed" in content_type:
                 return {
                     "status": "000",
