@@ -7,7 +7,8 @@ from mcp_opendart.utils.ctx_helper import with_context
 logger = logging.getLogger("mcp-opendart")
 @mcp.tool(
     name="get_single_acnt",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요계정과목을 제공합니다. 반환값에는 계정명, 당기금액, 전기금액, 계정과목코드, 재무제표구분 등이 포함됩니다."
+    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요계정과목을 제공합니다. 반환값에는 계정명, 당기금액, 전기금액, 계정과목코드, 재무제표구분 등이 포함됩니다.",
+    tags={"재무제표", "계정과목", "정기보고서", "단일회사"}
 )
 def get_single_acnt(
     corp_code: str,
@@ -37,7 +38,8 @@ def get_single_acnt(
 
 @mcp.tool(
     name="get_multi_acnt",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요계정과목을 제공합니다. 대상법인 복수조회가 가능합니다. 반환값에는 법인명, 계정명, 당기금액, 전기금액, 재무제표구분 등이 포함됩니다."
+    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요계정과목을 제공합니다. 대상법인 복수조회가 가능합니다. 반환값에는 법인명, 계정명, 당기금액, 전기금액, 재무제표구분 등이 포함됩니다.",
+    tags={"재무제표", "계정과목", "정기보고서", "다중회사"}
 )
 def get_multi_acnt(
     corp_code: str,
@@ -67,7 +69,8 @@ def get_multi_acnt(
 
 @mcp.tool(
     name="get_xbrl_file",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 원본파일(XBRL)을 제공합니다. 반환값에는 XBRL 압축파일의 저장 경로 및 다운로드 상태 정보가 포함됩니다."
+    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 원본파일(XBRL)을 제공합니다. 반환값에는 XBRL 압축파일의 저장 경로 및 다운로드 상태 정보가 포함됩니다.",
+    tags={"XBRL", "원본파일", "첨부파일", "정기보고서"}
 )
 def get_xbrl_file(
     rcept_no: str,
@@ -91,7 +94,8 @@ def get_xbrl_file(
 
 @mcp.tool(
     name="get_single_acc",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 모든계정과목을 제공합니다. 반환값에는 계정명, 재무제표구분, 당기/전기 금액, 계정과목코드 등이 포함됩니다."
+    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 모든계정과목을 제공합니다. 반환값에는 계정명, 재무제표구분, 당기/전기 금액, 계정과목코드 등이 포함됩니다.",
+    tags={"재무제표", "전체계정", "정기보고서", "단일회사"}
 )
 def get_single_acc(
     corp_code: str,
@@ -121,7 +125,8 @@ def get_single_acc(
 
 @mcp.tool(
     name="get_xbrl_taxonomy",
-    description="금융감독원 회계포탈에서 제공하는 IFRS 기반 XBRL 재무제표 공시용 표준계정과목체계를 제공합니다. 반환값에는 표준계정명, 계정코드, 순서, 국문/영문 계정명이 포함됩니다."
+    description="금융감독원 회계포탈에서 제공하는 IFRS 기반 XBRL 재무제표 공시용 표준계정과목체계를 제공합니다. 반환값에는 표준계정명, 계정코드, 순서, 국문/영문 계정명이 포함됩니다.",
+    tags={"XBRL", "IFRS", "계정체계", "표준화"}
 )
 def get_xbrl_taxonomy(
     sj_div: str,
@@ -151,7 +156,8 @@ def get_xbrl_taxonomy(
 
 @mcp.tool(
     name="get_single_index",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요 재무지표를 제공합니다. 반환값에는 지표명, 당기/전기 값, 지표분류, 지표코드 등이 포함됩니다."
+    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요 재무지표를 제공합니다. 반환값에는 지표명, 당기/전기 값, 지표분류, 지표코드 등이 포함됩니다.",
+    tags={"재무지표", "단일회사", "수익성", "성장성", "활동성", "안정성"}
 )
 def get_single_index(
     corp_code: str,
@@ -181,7 +187,8 @@ def get_single_index(
 
 @mcp.tool(
     name="get_multi_index",
-    description="다중회사 상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요 재무지표를 제공합니다. 대상법인 복수조회가 가능합니다. 반환값에는 법인명, 지표명, 당기/전기 값, 지표코드 등이 포함됩니다."
+    description="다중회사 상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 주요 재무지표를 제공합니다. 대상법인 복수조회가 가능합니다. 반환값에는 법인명, 지표명, 당기/전기 값, 지표코드 등이 포함됩니다.",
+    tags={"재무지표", "다중회사", "수익성", "안정성", "성장성", "활동성"}
 )
 def get_multi_index(
     corp_code: str,
