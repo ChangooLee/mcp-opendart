@@ -45,6 +45,10 @@ First, obtain your OpenDART API key:
 ### 2. Installation
 
 ```bash
+# Clone repository
+git clone https://github.com/ChangooLee/mcp-opendart.git
+cd mcp-opendart
+
 # Create virtual environment
 python3 -m venv .venv
 source .venv/bin/activate

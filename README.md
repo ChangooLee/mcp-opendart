@@ -45,6 +45,10 @@ AI 어시스턴트에게 다음과 같은 요청을 할 수 있습니다:
 ### 2. 설치
 
 ```bash
+# 저장소 복제
+git clone https://github.com/ChangooLee/mcp-opendart.git
+cd mcp-opendart
+
 # 가상환경 생성
 python3 -m venv .venv
 source .venv/bin/activate
