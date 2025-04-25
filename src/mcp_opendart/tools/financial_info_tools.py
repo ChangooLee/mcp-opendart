@@ -21,7 +21,7 @@ def get_single_acnt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2023)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서, 11012: 반기보고서 등)
         fs_div (Optional[str]): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값 없음.
 
@@ -51,7 +51,7 @@ def get_multi_acnt(
 
     Args:
         corp_code (str): 고유번호 목록 (콤마로 구분된 복수의 8자리 문자열)
-        bsns_year (str): 사업연도 (예: 2023)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서, 11012: 반기보고서 등)
         fs_div (Optional[str]): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값 없음.
 
@@ -105,7 +105,7 @@ def get_single_acc(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2023)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         fs_div (str): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값: "OFS"
 
@@ -165,7 +165,7 @@ def get_single_index(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2023)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         idx_cl_code (str): 지표분류코드 (M210000: 수익성지표, M220000: 안정성지표, M230000: 성장성지표, M240000: 활동성지표)
 
@@ -195,7 +195,7 @@ def get_multi_index(
 
     Args:
         corp_code (str): 고유번호 목록 (콤마로 구분된 복수의 8자리 문자열)
-        bsns_year (str): 사업연도 (예: 2023)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         idx_cl_code (str): 지표분류코드 (M210000: 수익성지표, M220000: 안정성지표, M230000: 성장성지표, M240000: 활동성지표)
 
