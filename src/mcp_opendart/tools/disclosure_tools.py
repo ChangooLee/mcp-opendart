@@ -1,3 +1,4 @@
+import sys
 from typing import Dict, Any, List, Optional, cast
 from mcp.server.fastmcp import Context
 from mcp_opendart.server import OpenDartContext, mcp

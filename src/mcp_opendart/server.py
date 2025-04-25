@@ -1,10 +1,12 @@
-import json
+
 import logging
-import os
+import sys
+import asyncio
+from starlette.requests import Request
 from collections.abc import AsyncGenerator, Sequence
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
-from typing import Annotated, Any, Literal
+from typing import Annotated, Any, Literal, Optional
 
 from fastmcp import FastMCP
 from mcp.types import TextContent
@@ -17,17 +19,73 @@ from .apis import ds001, ds002, ds003, ds004, ds005, ds006
 from typing import AsyncIterator
 
 # 로거 설정
+mcp_config = MCPConfig.from_env()
+level_name = mcp_config.log_level.upper()
+level = getattr(logging, level_name, logging.INFO)
 logger = logging.getLogger("mcp-opendart")
+
+# 로깅 설정: 출력 형식과 대상 스트림을 지정
+logging.basicConfig(
+    level=level,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    stream=sys.stderr
+)
+
+
 @dataclass
 class OpenDartContext(ServerSession):
-    client: OpenDartClient
-    ds001: ds001.DisclosureAPI
-    ds002: ds002.PeriodicReportAPI
-    ds003: ds003.FinancialInfoAPI
-    ds004: ds004.OwnershipDisclosureAPI
-    ds005: ds005.MajorReportAPI
-    ds006: ds006.SecuritiesFilingAPI
+    client: Optional[OpenDartClient] = None
+    ds001: Any = None
+    ds002: Any = None
+    ds003: Any = None
+    ds004: Any = None
+    ds005: Any = None
+    ds006: Any = None
 
+
+    def __post_init__(self):
+        # client가 None이면 기본 클라이언트 생성
+        if self.client is None:
+            from .config import OpenDartConfig, MCPConfig
+            config = OpenDartConfig.from_env()
+            self.client = OpenDartClient(config=config)
+            
+        # API 모듈이 None이면 초기화 (지연 임포트 사용)
+        if self.ds001 is None:
+            from .apis import ds001
+            self.ds001 = ds001.DisclosureAPI(self.client)
+        if self.ds002 is None:
+            from .apis import ds002
+            self.ds002 = ds002.PeriodicReportAPI(self.client)
+        if self.ds003 is None:
+            from .apis import ds003
+            self.ds003 = ds003.FinancialInfoAPI(self.client)
+        if self.ds004 is None:
+            from .apis import ds004
+            self.ds004 = ds004.OwnershipDisclosureAPI(self.client)
+        if self.ds005 is None:
+            from .apis import ds005
+            self.ds005 = ds005.MajorReportAPI(self.client)
+        if self.ds006 is None:
+            from .apis import ds006
+            self.ds006 = ds006.SecuritiesFilingAPI(self.client)
+        
+    async def __aenter__(self):
+        logger.info("🔁 OpenDartContext entered (Claude requested tool execution)")
+        return self
+
+    async def __aexit__(self, *args):
+        logger.info("🔁 OpenDartContext exited")
+
+opendart_context = OpenDartContext(
+    client=OpenDartClient(config=mcp_config),
+    ds001=ds001.DisclosureAPI(config=mcp_config),
+    ds002=ds002.PeriodicReportAPI(config=mcp_config),
+    ds003=ds003.FinancialInfoAPI(config=mcp_config),
+    ds004=ds004.OwnershipDisclosureAPI(config=mcp_config),
+    ds005=ds005.MajorReportAPI(config=mcp_config),
+    ds006=ds006.SecuritiesFilingAPI(config=mcp_config),
+)
 
 @asynccontextmanager
 async def opendart_lifespan(app: FastMCP) -> AsyncIterator[OpenDartContext]:
@@ -77,11 +135,23 @@ mcp = FastMCP(
     lifespan=opendart_lifespan,
 )
 
-# Register tool modules (ensure all @mcp.tool decorators run)
 import importlib
-for module_name in ["disclosure_tools", "financial_info_tools", "major_report_tools",
-                    "ownership_disclosure_tools", "periodic_report_tools", "securities_filing_tools"]:
+for module_name in [
+    "disclosure_tools", "financial_info_tools", "major_report_tools",
+    "ownership_disclosure_tools", "periodic_report_tools", "securities_filing_tools"
+]:
     importlib.import_module(f"mcp_opendart.tools.{module_name}")
+
+def main():
+    logger.info("✅ Initializing OpenDART FastMCP server...")
+    
+    transport = mcp_config.transport
+    port = mcp_config.port
+
+    if transport == "sse":
+        asyncio.run(run_server(transport="sse", port=port))
+    else:
+        mcp.run()
 
 async def run_server(
     transport: Literal["stdio", "sse"] = "stdio",

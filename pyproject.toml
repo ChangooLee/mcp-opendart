@@ -24,7 +24,7 @@ name = "AI Center"
 email = "lchangoo@gmail.com"
 
 [project.scripts]
-mcp-opendart = "mcp_opendart.__main__:main"
+mcp-opendart = "mcp_opendart.server:main"
 
 [project.optional-dependencies]
 dev = [

@@ -1,5 +1,6 @@
 import os
 import logging
+from typing import Literal, cast
 from dataclasses import dataclass
 from dotenv import load_dotenv
 
@@ -55,6 +56,7 @@ class MCPConfig:
     port: int = 8000
     log_level: str = "INFO"
     server_name: str = "opendart-mcp"
+    transport: Literal["stdio", "sse"] = "stdio"
     
     @classmethod
     def from_env(cls) -> "MCPConfig":
@@ -63,7 +65,8 @@ class MCPConfig:
             host=os.getenv("HOST", "0.0.0.0"),
             port=int(os.getenv("PORT", "8000")),
             log_level=os.getenv("LOG_LEVEL", "INFO"),
-            server_name=os.getenv("MCP_SERVER_NAME", "opendart-mcp")
+            server_name=os.getenv("MCP_SERVER_NAME", "opendart-mcp"),
+            transport=cast(Literal["stdio", "sse"], os.getenv("TRANSPORT", "stdio"))
         )
 
 # 설정 인스턴스 생성
