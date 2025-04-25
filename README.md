@@ -53,11 +53,6 @@ cd mcp-opendart
 python3 -m venv .venv
 source .venv/bin/activate
 
-# PyPI에서 설치
-pip install mcp-opendart
-
-# 또는 개발 모드로 설치
-pip install -e ".[dev]"
 ```
 
 ## IDE 통합
