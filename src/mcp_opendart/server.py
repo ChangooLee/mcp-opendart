@@ -77,15 +77,21 @@ class OpenDartContext(ServerSession):
     async def __aexit__(self, *args):
         logger.info("🔁 OpenDartContext exited")
 
+
+opendart_client = OpenDartClient(config=OpenDartConfig.from_env())
+# 1. OpenDartContext 정의
 opendart_context = OpenDartContext(
-    client=OpenDartClient(config=mcp_config),
-    ds001=ds001.DisclosureAPI(config=mcp_config),
-    ds002=ds002.PeriodicReportAPI(config=mcp_config),
-    ds003=ds003.FinancialInfoAPI(config=mcp_config),
-    ds004=ds004.OwnershipDisclosureAPI(config=mcp_config),
-    ds005=ds005.MajorReportAPI(config=mcp_config),
-    ds006=ds006.SecuritiesFilingAPI(config=mcp_config),
+    client=opendart_client,
+    ds001=ds001.DisclosureAPI(opendart_client),
+    ds002=ds002.PeriodicReportAPI(opendart_client),
+    ds003=ds003.FinancialInfoAPI(opendart_client),
+    ds004=ds004.OwnershipDisclosureAPI(opendart_client),
+    ds005=ds005.MajorReportAPI(opendart_client),
+    ds006=ds006.SecuritiesFilingAPI(opendart_client),
 )
+
+# 2. fallback용 ctx 설정은 이후에
+ctx = opendart_context        
 
 @asynccontextmanager
 async def opendart_lifespan(app: FastMCP) -> AsyncIterator[OpenDartContext]:
