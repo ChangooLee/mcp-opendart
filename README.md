@@ -49,11 +49,57 @@ AI 어시스턴트에게 다음과 같은 요청을 할 수 있습니다:
 git clone https://github.com/ChangooLee/mcp-opendart.git
 cd mcp-opendart
 
-# 가상환경 생성
-python3 -m venv .venv
+# [중요] Python 3.10 이상 사용 필수. 아래 'Python 3.10+ 설치 안내' 참고
+
+# 가상 환경 생성
+python3.10 -m venv .venv
 source .venv/bin/activate
 
+<<<<<<< HEAD
+=======
+# 패키지 설치
+# python 3.10 이상이 필요 
+python3 -m pip install --upgrade pip
+pip install -e .
+>>>>>>> 566a76a (Update README.md and README_en.md: installation and usage instructions revised, added git clone step)
 ```
+
+---
+
+## Python 3.10+ 설치 안내
+
+# Python 버전 확인 (3.10 이상 필요)
+python3 --version
+
+# 만약 Python 버전이 3.10 미만이라면, 아래 안내에 따라 Python 3.10 이상을 설치하세요:
+
+### macOS
+- 공식 웹사이트에서 최신 Python 설치 파일을 다운로드: https://www.python.org/downloads/macos/
+- 또는 Homebrew를 사용하는 경우:
+  ```sh
+  brew install python@3.10
+  ```
+  설치 후 `python3.10` 명령어를 사용해야 할 수 있습니다.
+
+### Windows
+- 공식 웹사이트에서 최신 Python 설치 파일을 다운로드 및 실행: https://www.python.org/downloads/windows/
+- 설치 시 "Add Python to PATH" 옵션을 반드시 체크하세요.
+- 설치 후 터미널을 재시작하고 `python` 또는 `python3` 명령어를 사용하세요.
+
+### Linux (Ubuntu/Debian)
+- 패키지 목록을 업데이트하고 Python 3.10 설치:
+  ```sh
+  sudo apt update
+  sudo apt install python3.10 python3.10-venv python3.10-distutils
+  ```
+- `python3.10` 명령어를 사용해야 할 수 있습니다.
+
+### Linux (Fedora/CentOS/RHEL)
+- Python 3.10 설치:
+  ```sh
+  sudo dnf install python3.10
+  ```
+
 
 ## IDE 통합
 

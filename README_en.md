@@ -49,11 +49,56 @@ First, obtain your OpenDART API key:
 git clone https://github.com/ChangooLee/mcp-opendart.git
 cd mcp-opendart
 
+# [IMPORTANT] Ensure you are using Python 3.10 or higher. See: 'Checking and Installing Python 3.10+' below.
+
 # Create virtual environment
-python3 -m venv .venv
+python3.10 -m venv .venv
 source .venv/bin/activate
 
+<<<<<<< HEAD
+=======
+# Install package
+# python 3.10 >= required
+python3 -m pip install --upgrade pip
+pip install -e .
+>>>>>>> 566a76a (Update README.md and README_en.md: installation and usage instructions revised, added git clone step)
 ```
+
+---
+
+## Checking and Installing Python 3.10+
+
+# Check Python version (must be 3.10 or higher)
+python3 --version
+
+# If your Python version is lower than 3.10, follow the instructions below to install Python 3.10 or higher:
+
+### macOS
+- Download the latest Python installer from the official website: https://www.python.org/downloads/macos/
+- Or, if you use Homebrew:
+  ```sh
+  brew install python@3.10
+  ```
+  After installation, you may need to use `python3.10` instead of `python3`.
+
+### Windows
+- Download and run the latest Python installer from: https://www.python.org/downloads/windows/
+- During installation, make sure to check "Add Python to PATH".
+- After installation, restart your terminal and use `python` or `python3`.
+
+### Linux (Ubuntu/Debian)
+- Update package list and install Python 3.10:
+  ```sh
+  sudo apt update
+  sudo apt install python3.10 python3.10-venv python3.10-distutils
+  ```
+- You may need to use `python3.10` instead of `python3`.
+
+### Linux (Fedora/CentOS/RHEL)
+- Install Python 3.10:
+  ```sh
+  sudo dnf install python3.10
+  ```
 
 ## IDE Integration
 
