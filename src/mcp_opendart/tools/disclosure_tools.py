@@ -63,25 +63,25 @@ def get_corporation_info(
     return TextContent(type="text", text=str(result))
 
 
-@mcp.tool(
-    name="get_disclosure_document",
-    description="접수번호(rcp_no)를 이용하여 공시서류 원본파일(XML)의 다운로드 정보를 조회합니다.",
-    tags={"공시서류", "원본파일", "다운로드", "XML"}
-)
-def get_disclosure_document(
-    rcp_no: str,
-    ctx: Optional[Any] = None
-) -> TextContent:
-    """
-    공시서류 원본파일 조회
-
-    Args:
-        rcp_no (str): 공시서류의 접수번호 (14자리)
-
-    참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019003
-    """
-    result = with_context(ctx, "get_disclosure_document", lambda context: context.ds001.get_disclosure_document(rcp_no))
-    return TextContent(type="text", text=str(result))
+# @mcp.tool(
+#     name="get_disclosure_document",
+#     description="접수번호(rcp_no)를 이용하여 공시서류 원본파일(XML)의 다운로드 정보를 조회합니다.",
+#     tags={"공시서류", "원본파일", "다운로드", "XML"}
+# )
+# def get_disclosure_document(
+#     rcp_no: str,
+#     ctx: Optional[Any] = None
+# ) -> TextContent:
+#     """
+#     공시서류 원본파일 조회
+# 
+#     Args:
+#         rcp_no (str): 공시서류의 접수번호 (14자리)
+# 
+#     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019003
+#     """
+#     result = with_context(ctx, "get_disclosure_document", lambda context: context.ds001.get_disclosure_document(rcp_no))
+#     return TextContent(type="text", text=str(result))
 
 
 @mcp.tool(

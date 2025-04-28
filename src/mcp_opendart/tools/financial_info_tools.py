@@ -67,30 +67,30 @@ def get_multi_acnt(
     ))
     return TextContent(type="text", text=str(result))
 
-@mcp.tool(
-    name="get_xbrl_file",
-    description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 원본파일(XBRL)을 제공합니다. 반환값에는 XBRL 압축파일의 저장 경로 및 다운로드 상태 정보가 포함됩니다.",
-    tags={"XBRL", "원본파일", "첨부파일", "정기보고서"}
-)
-def get_xbrl_file(
-    rcept_no: str,
-    reprt_code: str,
-    ctx: Optional[Any] = None
-) -> TextContent:
-    """
-    재무제표 원본파일(XBRL) 다운로드
-
-    Args:
-        rcept_no (str): 접수번호 (예: 20240117000238)
-        reprt_code (str): 보고서 코드 (11011: 사업보고서, 11012: 반기보고서 등)
-
-    참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS003&apiId=2019019
-    """
-    result = with_context(ctx, "get_xbrl_file", lambda context: context.ds003.get_xbrl_file(
-        rcept_no=rcept_no,
-        reprt_code=reprt_code
-    ))
-    return TextContent(type="text", text=str(result))
+# @mcp.tool(
+#     name="get_xbrl_file",
+#     description="상장법인 및 주요 비상장법인이 제출한 정기보고서 내에 XBRL재무제표의 원본파일(XBRL)을 제공합니다. 반환값에는 XBRL 압축파일의 저장 경로 및 다운로드 상태 정보가 포함됩니다.",
+#     tags={"XBRL", "원본파일", "첨부파일", "정기보고서"}
+# )
+# def get_xbrl_file(
+#     rcept_no: str,
+#     reprt_code: str,
+#     ctx: Optional[Any] = None
+# ) -> TextContent:
+#     """
+#     재무제표 원본파일(XBRL) 다운로드
+# 
+#     Args:
+#         rcept_no (str): 접수번호 (예: 20240117000238)
+#         reprt_code (str): 보고서 코드 (11011: 사업보고서, 11012: 반기보고서 등)
+# 
+#     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS003&apiId=2019019
+#     """
+#     result = with_context(ctx, "get_xbrl_file", lambda context: context.ds003.get_xbrl_file(
+#         rcept_no=rcept_no,
+#         reprt_code=reprt_code
+#     ))
+#     return TextContent(type="text", text=str(result))
 
 @mcp.tool(
     name="get_single_acc",
