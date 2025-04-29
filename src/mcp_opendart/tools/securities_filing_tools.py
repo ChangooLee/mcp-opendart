@@ -57,8 +57,8 @@ def get_equity(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020054
     """
@@ -126,8 +126,8 @@ def get_debt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020055
     """
@@ -140,41 +140,40 @@ def get_debt(
 
 @mcp.tool(
     name="get_depository_receipt",
-    description="""상장법인 및 주요 비상장법인이 제출한 주요사항보고서 중, 해외 증권시장 상장을 위한 예탁증서(DR, Depository Receipt) 발행 내역을 조회하는 도구입니다.  
-        예탁증서 발행 구조, 증권 종류, 인수인 정보, 자금 사용 목적 등을 분석하여, 해외 시장 확장 전략, 자본구조 변동성, 외화 조달 리스크 등을 평가하는 데 활용할 수 있습니다.
+    description="""상장법인 및 주요 비상장법인이 제출한 증권신고서 중, 증권예탁증권(DR: Depositary Receipt) 발행 내역을 조회하는 도구입니다.  
+        예탁기관을 통한 간접투자 구조를 통해 외화 조달, 해외투자자 유치, 유동성 확보 등의 목적이 숨겨져 있을 수 있으며, 발행조건을 분석함으로써 기업의 자금조달 전략 및 글로벌 진출 리스크를 평가할 수 있습니다.
 
         【핵심 제공 데이터】
-        - 기본 일정 정보(sbd, pymd, sband, asand, asstd): 청약, 납입, 공고, 배정 등 주요 절차 일정
-        - 신주인수권 조건(exstk, exprc, expd): 예탁증서에 연계된 신주인수권 행사 조건
-        - 모집/매출 증권정보(stksen, stkcnt, fv, slprc, slta, slmthn): 증권 종류별 발행수량, 액면가, 모집가액 및 방법
-        - 인수인 정보(actsen, actnmn, udtcnt, udtamt, udtprc, udtmth): 인수 주체별 인수 조건 및 방식
-        - 자금 사용 목적(se, amt): 모집자금의 세부 사용처
-        - 매출인 정보(hdr, rl_cmp, bfsl_hdstk, slstk, atsl_hdstk): 기존 보유 주주의 증권 매출 내역 및 회사와의 관계
-        - 주요사항보고서 접수번호(rpt_rcpn): 연관 공시 추적용
+        - 예탁증권 종류(drt_pd_knd): GDR, ADR, EDR 등 발행 유형
+        - 발행 수량(drt_isu_cnt): 총 발행 예정 수량
+        - 발행가액(drt_isu_prc): 발행 예정 단가
+        - 외화표시 여부(fxcrncy_yn): 외화 표시 여부 (환율 리스크 가능성 평가)
+        - 발행 목적(drt_isu_pp): 자금조달 목적 구체적 명시(설비투자, 차입금 상환 등)
+        - 발행시장(drt_lstplc): 상장 예정 해외시장
+        - 주관사 정보(drt_undwt_cmpnm): 발행 주관기관(IB)의 신뢰도 평가 가능
 
         【연계 분석 도구】
-        - get_foreign_listing_decision: 해외상장 결의 공시와 병행하여 상장 전략 및 변동성 평가
-        - get_single_acc: 자금조달 이후 재무구조 변동 여부 심층 분석
-        - get_stock_total: DR 발행 이후 실제 주식 수 변동 확인
-        - get_disclosure_list: 예탁증서 발행 관련 추가 공시(계약 변경, 상장 철회 등) 모니터링
+        - get_single_acc: 외화 조달 이후 자산·부채 변동 분석
+        - get_disclosure_list: DR 발행과 관련된 추가 공시(예: 신규 투자, 설비 확장 등) 확인
+        - get_major_holder_changes: DR 발행 후 주요 주주 지분율 변동 여부 추적
 
         【활용 시나리오】
-        - 예탁증서 발행 규모(slta)와 외화 조달 금액 비교로 외화 부채 부담 여부 진단
-        - 자금 사용 목적(se, amt) 분석을 통해 해외사업 확장 목적 여부 평가
-        - 인수 주체(actnmn) 및 인수비율(udtcnt) 분석을 통해 특정 투자자 집중 여부 탐지
-        - 매출 증권 수(slstk) 급증 시 기존 주주 지분 희석 및 지배구조 변동 가능성 평가
-        - 신주인수권 행사 조건(exstk, exprc, expd)을 통해 향후 추가 자본 희석 가능성 예측
+        - drt_isu_cnt 대비 기존 총주식수 대비 비율을 계산하여 희석 가능성 정량 분석
+        - 외화표시(fxcrncy_yn)가 'Y'인 경우, 환율 변동성 리스크(외화 부채 증가 가능성) 사전 파악
+        - 발행목적(drt_isu_pp)이 차입금 상환일 경우, 단기 유동성 위기 가능성 평가
+        - 주관사 신뢰도(drt_undwt_cmpnm)를 통해 발행 성공 가능성과 조건의 공정성 분석
+        - 발행시장(drt_lstplc)이 제한적인 경우, 실제 유동성 확보 가능성 낮을 수 있음
 
         【효과적 활용 방법】
-        - 모집총액(slta) 대비 자금사용 계획 금액 합계(amt) 검증으로 조달자금 과잉 또는 목적 일탈 여부 평가
-        - 인수 방법(udtmth)이 사모 방식일 경우 투자자 제한성 및 매각 리스크 고려
-        - 기존 보유자(hdr) 매출 주식 수(slstk) 급증 여부를 통해 내부자 유동성 이벤트 가능성 평가
-        - get_foreign_listing_decision와 시계열 연계하여 상장 철회, 지연 등의 조기 신호 포착
+        - 외화표시 여부를 분석하여 향후 환율 변동에 따른 손익 영향 추정
+        - 발행수량과 발행가격을 기준으로 총 발행 금액 산출 후, 기존 자기자본 대비 비율 검토
+        - DR 발행 직후 get_disclosure_list로 자금 사용 계획의 변동 여부 및 추가 이벤트 모니터링
+        - get_single_acc로 DR 발행 이후 자본구조 개선 여부를 수치로 검증
 
         【주의사항 및 팁】
-        - 일부 예탁증서는 신주발행과 직접 연계되지 않으며, 기존 주식 기반으로 발행될 수 있으므로 행사대상증권(exstk) 명확히 검토 필요
-        - 외화 조달이 수반될 경우, 환율 변동 리스크 및 환헤지 계획 여부를 별도로 점검해야 함
-        - DR 발행 후 청산/회수 리스크(예: ADR 프로그램 종료)까지 고려하여 get_disclosure_list로 후속 공시 모니터링 필수
+        - 발행시장(drt_lstplc)이 비주류 거래소인 경우 실제 매매 활성도가 낮아 유동성 확보에 실패할 가능성 존재
+        - 외화표시 발행임에도 환헤지 계획이 없는 경우, 환차손 리스크로 이어질 수 있음
+        - 발행 목적이 구체적이지 않거나 모호한 경우, 자금 사용처 불투명성에 주의 필요
         """,
     tags={"증권예탁증권", "증권신고서", "증권예탁증권", "증권신고서"}
 )
@@ -189,8 +188,8 @@ def get_depository_receipt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020056
     """
@@ -253,8 +252,8 @@ def get_merger_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020057
     """
@@ -316,8 +315,8 @@ def get_stock_exchange_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020058
     """
@@ -379,8 +378,8 @@ def get_division_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20220101)
-        end_de (str): 검색종료 접수일자 (예: 20221231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020059
     """
