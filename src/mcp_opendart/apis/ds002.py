@@ -333,7 +333,7 @@ class PeriodicReportAPI:
         }
         return self.client.get(endpoint, params)
     
-    def get_contingent_convertible_bond_outstanding(
+    def get_conditional_capital_securities_outstanding(
         self, 
         corp_code: str, 
         bsns_year: str, 
@@ -485,7 +485,7 @@ class PeriodicReportAPI:
         }
         return self.client.get(endpoint, params)
     
-    def get_public_fund_usage(
+    def get_public_capital_usage(
         self, 
         corp_code: str, 
         bsns_year: str, 
@@ -503,7 +503,7 @@ class PeriodicReportAPI:
         }
         return self.client.get(endpoint, params)
     
-    def get_private_fund_usage(
+    def get_private_capital_usage(
         self, 
         corp_code: str, 
         bsns_year: str, 

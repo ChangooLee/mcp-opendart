@@ -561,7 +561,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_business_transfer(
+    def get_business_acquisition(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -584,7 +584,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_business_acquisition(
+    def get_business_transfer(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -607,7 +607,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_tangible_asset_transfer(
+    def get_tangible_asset_acquisition(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -630,7 +630,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_tangible_asset_acquisition(
+    def get_tangible_asset_transfer(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -653,7 +653,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_other_corp_stock_transfer(
+    def get_other_corp_stock_acquisition(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -676,7 +676,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_other_corp_stock_acquisition(
+    def get_other_corp_stock_transfer(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -699,7 +699,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_stock_related_bond_transfer(
+    def get_stock_related_bond_acquisition(
         self, 
         corp_code: str, 
         bgn_de: str, 
@@ -722,7 +722,7 @@ class MajorReportAPI:
         }
         return self.client.get(endpoint, params)
 
-    def get_stock_related_bond_acquisition(
+    def get_stock_related_bond_transfer(
         self, 
         corp_code: str, 
         bgn_de: str, 
