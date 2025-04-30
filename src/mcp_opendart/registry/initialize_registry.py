@@ -212,7 +212,7 @@ def initialize_registry() -> ToolRegistry:
     registry.register_tool(
         name="get_corporation_info",
         korean_name="기업 기본정보 조회",
-        description="기업의 대표자, 결산월, 상장 상태 등 핵심 기초 정보를 조회합니다.",
+        description="기업의 대표자, 결산월, 상장 상태, 가족관계 등 핵심 기초 정보를 조회합니다.",
         parameters={
             "type": "object",
             "properties": {
@@ -254,6 +254,97 @@ def initialize_registry() -> ToolRegistry:
         },
         linked_tools=["get_corporation_code_by_name"]
     )
+
+    registry.register_tool(
+        name="get_major_shareholder",
+        korean_name="최대주주 지분 현황 조회",
+        description="정기보고서 기준 최대주주 및 특수관계인의 지분 보유 현황을 조회하고, 지분율 변화, 지배구조 집중도, 승계 및 분쟁 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_executive_trading",
+            "get_single_acc"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_major_shareholder_changes",
+        korean_name="최대주주 지분 변동 조회",
+        description="정기보고서 기준 최대주주의 지분 변동 내역을 조회하고, 변동 원인과 시점, 지분율 변화 등을 바탕으로 승계 흐름, 지배력 약화, 경영권 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_major_shareholder",
+            "get_disclosure_list",
+            "get_executive_trading",
+            "get_major_holder_changes"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_minority_shareholder",
+        korean_name="소액주주 지분 현황 조회",
+        description="정기보고서를 기반으로 소액주주의 수, 지분율, 보유 주식 수 등을 조회하고, 지배구조 안정성, 경영권 방어력, M&A 리스크 등을 종합 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_major_shareholder",
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_treasury_stock"
+        ]
+    )
+
 
     registry.register_tool(
         name="get_major_holder_changes",
@@ -1438,6 +1529,871 @@ def initialize_registry() -> ToolRegistry:
             "get_major_holder_changes",
             "get_disclosure_list",
             "get_single_acc"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_stock_related_bond_acquisition",
+        korean_name="주권 관련 사채권 양수결정 조회",
+        description="전환사채, 신주인수권부사채 등 주권 관련 사채권 양수 결정을 조회하고, 향후 지분율 변동과 경영권 리스크 가능성을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bgn_de": {
+                    "type": "string",
+                    "description": "검색 시작 접수일자 (예: 20240101)"
+                },
+                "end_de": {
+                    "type": "string",
+                    "description": "검색 종료 접수일자 (예: 20241231)"
+                }
+            },
+            "required": ["corp_code", "bgn_de", "end_de"]
+        },
+        linked_tools=[
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_single_acc"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_merger",
+        korean_name="회사합병 결정 조회",
+        description="흡수합병 또는 신설합병 결정 공시를 조회하고, 합병비율, 외부평가 의견, 합병상대회사의 재무정보를 통해 지배구조 변화 및 재무 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bgn_de": {
+                    "type": "string",
+                    "description": "검색 시작 접수일자 (예: 20240101)"
+                },
+                "end_de": {
+                    "type": "string",
+                    "description": "검색 종료 접수일자 (예: 20241231)"
+                }
+            },
+            "required": ["corp_code", "bgn_de", "end_de"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_executive_trading"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_division",
+        korean_name="회사분할 결정 조회",
+        description="인적분할 또는 물적분할 결정 공시를 조회하고, 분할방식, 이전사업, 신설법인 재무정보 등을 통해 지배구조 및 재무 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bgn_de": {
+                    "type": "string",
+                    "description": "검색 시작 접수일자 (예: 20240101)"
+                },
+                "end_de": {
+                    "type": "string",
+                    "description": "검색 종료 접수일자 (예: 20241231)"
+                }
+            },
+            "required": ["corp_code", "bgn_de", "end_de"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_executive_trading"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_division_merger",
+        korean_name="회사분할합병 결정 조회",
+        description="분할과 합병이 동시에 이루어지는 복합 구조의 분할합병 결정을 조회하고, 사업 이전, 합병비율, 외부평가, 신설회사 리스크 등을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bgn_de": {
+                    "type": "string",
+                    "description": "검색 시작 접수일자 (예: 20240101)"
+                },
+                "end_de": {
+                    "type": "string",
+                    "description": "검색 종료 접수일자 (예: 20241231)"
+                }
+            },
+            "required": ["corp_code", "bgn_de", "end_de"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_executive_trading"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_stock_exchange",
+        korean_name="주식교환·이전 결정 조회",
+        description="주식의 포괄적 교환 또는 이전 결정을 조회하고, 교환비율, 외부평가, 대상 법인의 재무정보 등을 통해 지배구조 개편 및 리스크 요인을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bgn_de": {
+                    "type": "string",
+                    "description": "검색 시작 접수일자 (예: 20240101)"
+                },
+                "end_de": {
+                    "type": "string",
+                    "description": "검색 종료 접수일자 (예: 20241231)"
+                }
+            },
+            "required": ["corp_code", "bgn_de", "end_de"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_foreign_listing_decision"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_stock_increase_decrease",
+        korean_name="증자·감자 현황 조회",
+        description="정기보고서에 기재된 증자 및 감자 내역을 조회하고, 자본금 변동, 주식 수량 변화, 감자 형태 등을 바탕으로 지배구조 및 재무전략 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_disclosure_list",
+            "get_major_holder_changes",
+            "get_executive_trading"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_treasury_stock",
+        korean_name="자기주식 취득·처분 현황 조회",
+        description="정기보고서를 기반으로 자기주식의 취득, 처분, 소각 내역을 조회하고, 주가 방어, 지배구조 조정, 자본 정책 등과의 연계성을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_major_holder_changes",
+            "get_disclosure_list",
+            "get_single_acc",
+            "get_executive_trading"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_executive_info",
+        korean_name="임원 현황 조회",
+        description="정기보고서 기준 임원의 성명, 직위, 경력, 임기, 최대주주와의 관계 등을 조회하고, 경영진 구조 및 지배구조 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_executive_trading",
+            "get_major_holder_changes",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_employee_info",
+        korean_name="직원 현황 조회",
+        description="정기보고서 기준 직원 수, 근속연수, 고용형태, 평균 급여 등을 조회하고, 조직 안정성, 인건비 구조, 고용 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_executive_info",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_individual_compensation",
+        korean_name="개별 임원 보수 조회",
+        description="5억 원 초과 보수를 수령한 개별 임원의 보수 총액, 직위, 비포함 항목 등을 조회하고, 경영성과 대비 과도한 보상 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_executive_info",
+            "get_employee_info",
+            "get_disclosure_list"
+        ]
+    )
+    
+    registry.register_tool(
+        name="get_total_compensation",
+        korean_name="임원 전체 보수 조회",
+        description="정기보고서를 기반으로 임원 전체 보수 총액, 평균 보수액, 수령 인원 등을 조회하고, 보상 집중도 및 보수 투명성을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_individual_compensation",
+            "get_executive_info",
+            "get_employee_info",
+            "get_disclosure_list"
+        ]
+    )
+   
+    registry.register_tool(
+        name="get_individual_compensation_amount",
+        korean_name="개인별 보수 지급 금액 조회",
+        description="정기보고서에 공시된 5억 원 이상 보수를 수령한 상위 5인의 보수 총액, 직위, 비포함 항목 등을 조회하고, 보상 집중도 및 지배구조 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_total_compensation",
+            "get_individual_compensation",
+            "get_executive_info",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_investment_in_other_corp",
+        korean_name="타법인 출자현황 조회",
+        description="사업보고서에 공시된 타법인 출자 내역을 조회하고, 출자 목적, 보유 지분율, 장부가액, 평가손익, 피출자법인의 재무성과 등을 분석하여 그룹 전략 및 투자 리스크를 평가합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_major_holder_changes",
+            "get_single_acc",
+            "get_business_acquisition",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_stock_total",
+        korean_name="주식 총수 현황 조회",
+        description="정기보고서 내 발행가능 주식 수, 발행 주식 수, 감자 및 소각 주식 수, 자기주식 및 유통주식 수 등을 조회하고, 자본금 구조 및 유통물량 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_paid_in_capital_increase",
+            "get_free_capital_increase",
+            "get_capital_reduction",
+            "get_major_holder_changes",
+            "get_treasury_stock_acquisition",
+            "get_treasury_stock_disposal"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_debt_securities_issued",
+        korean_name="채무증권 발행 실적 조회",
+        description="정기보고서 기준 회사채·전환사채·교환사채 등의 발행 내역을 조회하고, 발행금액, 이자율, 만기, 상환여부 등을 통해 자금조달 구조 및 부채 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_write_down_bond",
+            "get_major_holder_changes",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_commercial_paper_outstanding",
+        korean_name="기업어음 미상환 잔액 조회",
+        description="정기보고서 기준 기업어음(CP)의 잔여만기별 미상환 잔액을 조회하고, 단기차입 의존도 및 유동성 리스크, 차환 부담 구조를 정량적으로 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_debt_securities_issued",
+            "get_single_acc",
+            "get_creditor_management",
+            "get_bankruptcy"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_short_term_bond_outstanding",
+        korean_name="단기사채 미상환 잔액 조회",
+        description="정기보고서 기준 단기사채(SB)의 잔여만기별 미상환 금액과 발행 한도 정보를 조회하고, 단기차입 의존도, 유동성 리스크, 차환 부담 수준을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_commercial_paper_outstanding",
+            "get_single_acc",
+            "get_creditor_management",
+            "get_bankruptcy"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_corporate_bond_outstanding",
+        korean_name="회사채 미상환 잔액 조회",
+        description="정기보고서를 기반으로 회사채의 잔존 만기별 미상환 금액, 총액, 발행 유형을 조회하고, 상환 집중 구조, 장기 레버리지 비중, 유동성 리스크를 정량적으로 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_debt_securities_issued",
+            "get_single_acc",
+            "get_creditor_management",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_hybrid_securities_outstanding",
+        korean_name="신종자본증권 미상환 잔액 조회",
+        description="정기보고서를 기반으로 신종자본증권(하이브리드 증권)의 잔존 만기별 미상환 금액과 발행 유형을 조회하고, 자본 인정 구조, 상환 리스크, 재무 레버리지 영향을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_write_down_bond",
+            "get_single_acc",
+            "get_debt_securities_issued",
+            "get_major_holder_changes"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_conditional_capital_securities_outstanding",
+        korean_name="조건부 자본증권 미상환 잔액 조회",
+        description="정기보고서를 기반으로 상각형 조건부자본증권의 만기별 미상환 잔액과 발행 유형을 조회하고, 자본 잠식 리스크, 상각 조건 도달 가능성, 리파이낸싱 구조를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기, 11013: 1분기, 11014: 3분기)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_write_down_bond",
+            "get_single_acc",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_accounting_auditor_opinion",
+        korean_name="회계감사인의 명칭 및 감사의견 조회",
+        description="정기보고서를 기반으로 회계감사인의 감사의견, 핵심감사사항, 강조사항 등을 조회하여 회계 투명성, 내부통제 위험, 기업 지속 가능성에 대한 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_single_acc",
+            "get_disclosure_list",
+            "get_executive_info",
+            "get_investment_in_other_corp"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_audit_service_contract",
+        korean_name="감사용역체결현황 조회",
+        description="정기보고서를 기반으로 감사용역계약 체결 내역과 실제 감사 수행 결과를 비교하여 회계감사 품질, 보수 변동, 감사 독립성 리스크 등을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_accounting_auditor_opinion",
+            "get_executive_info",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_non_audit_service_contract",
+        korean_name="회계감사인과의 비감사용역 계약체결 현황 조회",
+        description="정기보고서를 기반으로 회계법인 또는 계열사와 체결된 비감사용역 계약 내역을 조회하고, 감사인의 독립성 침해 여부 및 경제적 종속 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_audit_service_contract",
+            "get_accounting_auditor_opinion",
+            "get_disclosure_list",
+            "get_executive_info"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_outside_director_status",
+        korean_name="사외이사 및 그 변동현황 조회",
+        description="정기보고서를 기반으로 사외이사의 수, 비율, 선임 및 해임 현황을 조회하고, 이사회 독립성, 사외이사 유지율, 지배구조 감시 기능을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_executive_info",
+            "get_disclosure_list",
+            "get_audit_committee",
+            "get_major_shareholder"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_unregistered_exec_compensation",
+        korean_name="미등기임원 보수현황 조회",
+        description="사업보고서를 기반으로 미등기임원에게 지급된 보수 총액, 인원수, 평균 보수를 조회하고, 내부자 보상 집중도 및 투명성, 보상 구조의 적절성을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_individual_compensation",
+            "get_employee_info",
+            "get_total_compensation",
+            "get_disclosure_list"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_executive_compensation_approved",
+        korean_name="이사·감사 전체의 보수현황 (주주총회 승인금액) 조회",
+        description="사업보고서를 기반으로 이사, 감사, 사외이사 등의 보수에 대해 주주총회에서 승인된 금액을 조회하고, 실제 보수 집행 내역과 비교하여 보상 통제 수준과 집행률을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_total_compensation",
+            "get_individual_compensation_amount",
+            "get_disclosure_list",
+            "get_executive_info"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_executive_compensation_by_type",
+        korean_name="이사·감사 전체의 보수현황 (보수지급금액 - 유형별) 조회",
+        description="사업보고서를 기반으로 등기이사, 사외이사, 감사위원 등의 직책별 보수 지급 내역을 조회하고, 평균 보수 수준과 집중도, 보상 구조의 합리성을 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_executive_compensation_approved",
+            "get_total_compensation",
+            "get_individual_compensation",
+            "get_executive_info"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_public_capital_usage",
+        korean_name="공모자금의 사용내역 조회",
+        description="사업보고서를 기반으로 유상증자나 전환사채 발행 등으로 조달된 자금의 사용 계획과 실제 사용 내역을 조회하고, 계획 대비 집행 수준과 내부통제 리스크를 분석합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_paid_in_capital_increase",
+            "get_convertible_bond",
+            "get_disclosure_list",
+            "get_single_acc"
+        ]
+    )
+
+    registry.register_tool(
+        name="get_private_capital_usage",
+        korean_name="사모자금의 사용내역 조회",
+        description="주요사항보고서를 기반으로 제3자배정 유상증자 등 사모방식으로 조달한 자금의 사용계획과 실제 집행 내역을 비교 분석하여, 운용 리스크와 계획 이탈 가능성을 평가합니다.",
+        parameters={
+            "type": "object",
+            "properties": {
+                "corp_code": {
+                    "type": "string",
+                    "description": "기업 고유번호 (8자리)"
+                },
+                "bsns_year": {
+                    "type": "string",
+                    "description": "사업연도 (예: 2024)"
+                },
+                "reprt_code": {
+                    "type": "string",
+                    "description": "보고서 코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)"
+                }
+            },
+            "required": ["corp_code", "bsns_year", "reprt_code"]
+        },
+        linked_tools=[
+            "get_paid_in_capital_increase",
+            "get_single_acc",
+            "get_disclosure_list"
         ]
     )
 
