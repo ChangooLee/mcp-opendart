@@ -1,3 +1,6 @@
+import logging
+
+logger = logging.getLogger("mcp-opendart")
 
 from typing import Dict, List, Optional
 
@@ -53,6 +56,7 @@ class ToolRegistry:
         return list(self.tools.values())
 
     def export_function_schemas(self) -> List[dict]:
+        logger.info(f"Exporting function schemas: {self.tools.values()}")
         return [tool.to_function_schema() for tool in self.tools.values()]
 
     def export_brief_summary(self) -> str:

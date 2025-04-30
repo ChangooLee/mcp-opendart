@@ -17,6 +17,7 @@ from .config import OpenDartConfig, MCPConfig
 from .apis.client import OpenDartClient
 from .apis import ds001, ds002, ds003, ds004, ds005, ds006
 from typing import AsyncIterator
+from mcp_opendart.registry.initialize_registry import initialize_registry
 
 # 로거 설정
 mcp_config = MCPConfig.from_env()
@@ -134,10 +135,12 @@ async def opendart_lifespan(app: FastMCP) -> AsyncIterator[OpenDartContext]:
     finally:
         logger.info("Shutting down OpenDART FastMCP server...")
 
+tool_registry = initialize_registry()
 # Create the main FastMCP instance
 mcp = FastMCP(
     "OpenDART MCP",
     description="OpenDART tools and resources for interacting with DART system",
+    function_schemas=tool_registry.export_function_schemas(),  
     lifespan=opendart_lifespan,
 )
 
