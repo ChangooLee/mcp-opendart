@@ -61,3 +61,6 @@ class ToolRegistry:
 
     def export_brief_summary(self) -> str:
         return "\n".join(tool.brief_summary() for tool in self.tools.values())
+
+    def get_tool(self, name: str) -> Optional[ToolMetadata]:
+        return self.tools.get(name)
