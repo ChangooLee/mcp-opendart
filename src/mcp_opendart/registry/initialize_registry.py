@@ -1533,9 +1533,9 @@ def initialize_registry() -> ToolRegistry:
     )
 
     registry.register_tool(
-        name="get_stock_related_bond_acquisition",
-        korean_name="주권 관련 사채권 양수결정 조회",
-        description="전환사채, 신주인수권부사채 등 주권 관련 사채권 양수 결정을 조회하고, 향후 지분율 변동과 경영권 리스크 가능성 분석",
+        name="get_stock_related_bond_transfer",
+        korean_name="주권 관련 사채권 양도결정 조회",
+        description="주식 관련 사채권 양도에 따른 유동성 확보 현황 및 잠재적 지분 구조 변화 분석",
         parameters={
             "type": "object",
             "properties": {
@@ -1560,7 +1560,7 @@ def initialize_registry() -> ToolRegistry:
             "get_single_acc"
         ]
     )
-
+    
     registry.register_tool(
         name="get_merger",
         korean_name="회사합병 결정 조회",
