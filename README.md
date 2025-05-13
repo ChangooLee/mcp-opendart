@@ -55,13 +55,10 @@ cd mcp-opendart
 python3.10 -m venv .venv
 source .venv/bin/activate
 
-<<<<<<< HEAD
-=======
 # 패키지 설치
 # python 3.10 이상이 필요 
 python3 -m pip install --upgrade pip
-pip install -e .
->>>>>>> 566a76a (Update README.md and README_en.md: installation and usage instructions revised, added git clone step)
+uv pip install -e .
 ```
 
 ---
