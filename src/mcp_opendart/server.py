@@ -153,6 +153,7 @@ for module_name in [
 
 def main():
     logger.info("✅ Initializing OpenDART FastMCP server...")
+    mcp_config = MCPConfig.from_env()
     
     transport = mcp_config.transport
     port = mcp_config.port
