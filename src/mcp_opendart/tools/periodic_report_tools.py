@@ -22,7 +22,7 @@ def get_stock_increase_decrease(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019004
@@ -50,7 +50,7 @@ def get_dividend_info(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019005
@@ -78,7 +78,7 @@ def get_treasury_stock(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019006
@@ -106,7 +106,7 @@ def get_major_shareholder(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019007
@@ -134,7 +134,7 @@ def get_major_shareholder_changes(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019008
@@ -162,7 +162,7 @@ def get_minority_shareholder(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019009
@@ -190,7 +190,7 @@ def get_executive_info(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019010
@@ -218,7 +218,7 @@ def get_employee_info(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019011
@@ -246,7 +246,7 @@ def get_individual_compensation(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019012
@@ -274,7 +274,7 @@ def get_total_compensation(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (11011: 사업보고서, 11012: 반기보고서, 11013: 1분기, 11014: 3분기)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019013
@@ -302,7 +302,7 @@ def get_individual_compensation_amount(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019014
@@ -330,7 +330,7 @@ def get_investment_in_other_corp(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2019015
@@ -358,7 +358,7 @@ def get_stock_total(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020002
@@ -386,7 +386,7 @@ def get_debt_securities_issued(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020003
@@ -414,7 +414,7 @@ def get_commercial_paper_outstanding(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020004
@@ -442,7 +442,7 @@ def get_short_term_bond_outstanding(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020005
@@ -470,7 +470,7 @@ def get_corporate_bond_outstanding(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020006
@@ -498,7 +498,7 @@ def get_hybrid_securities_outstanding(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020007
@@ -526,7 +526,7 @@ def get_conditional_capital_securities_outstanding(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020008
@@ -554,7 +554,7 @@ def get_accounting_auditor_opinion(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020009
@@ -582,7 +582,7 @@ def get_audit_service_contract(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020010
@@ -610,7 +610,7 @@ def get_non_audit_service_contract(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020011
@@ -638,7 +638,7 @@ def get_outside_director_status(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020012
@@ -666,7 +666,7 @@ def get_unregistered_exec_compensation(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020013
@@ -694,7 +694,7 @@ def get_executive_compensation_approved(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020014
@@ -722,7 +722,7 @@ def get_executive_compensation_by_type(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020015
@@ -750,7 +750,7 @@ def get_public_capital_usage(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020016
@@ -778,7 +778,7 @@ def get_private_capital_usage(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서코드 (예: 11011: 사업보고서, 11012: 반기보고서, 11013: 1분기보고서, 11014: 3분기보고서)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS002&apiId=2020017

@@ -22,8 +22,8 @@ def get_major_holder_changes(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        start_date (Optional[str]): 검색시작일 (예: 20250101)
-        end_date (Optional[str]): 검색종료일 (예: 20251231)
+        start_date (Optional[str]): 검색시작일 (예: 20240101)
+        end_date (Optional[str]): 검색종료일 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS004&apiId=2019021
     """
@@ -50,8 +50,8 @@ def get_executive_trading(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        start_date (Optional[str]): 검색시작일 (예: 20250101)
-        end_date (Optional[str]): 검색종료일 (예: 20251231)
+        start_date (Optional[str]): 검색시작일 (예: 20240101)
+        end_date (Optional[str]): 검색종료일 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS004&apiId=2019022
     """

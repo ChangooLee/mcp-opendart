@@ -23,7 +23,7 @@ def get_single_acnt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서, 11012: 반기보고서 등)
         fs_div (Optional[str]): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값 없음.
 
@@ -54,7 +54,7 @@ def get_multi_acnt(
 
     Args:
         corp_code (str): 고유번호 목록
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서, 11012: 반기보고서 등)
         fs_div (Optional[str]): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값 없음.
 
@@ -82,7 +82,7 @@ def get_multi_acnt(
 #     재무제표 원본파일(XBRL) 다운로드
 # 
 #     Args:
-#         rcept_no (str): 접수번호 (예: 20250117000238)
+#         rcept_no (str): 접수번호 (예: 20240117000238)
 #         reprt_code (str): 보고서 코드 (11011: 사업보고서, 11012: 반기보고서 등)
 # 
 #     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS003&apiId=2019019
@@ -110,7 +110,7 @@ def get_single_acc(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         fs_div (str): 개별/연결 구분 (OFS: 개별, CFS: 연결). 기본값: "OFS"
 
@@ -172,7 +172,7 @@ def get_single_index(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         idx_cl_code (str): 지표분류코드 (M210000: 수익성지표, M220000: 안정성지표, M230000: 성장성지표, M240000: 활동성지표)
 
@@ -203,7 +203,7 @@ def get_multi_index(
 
     Args:
         corp_code (str): 고유번호 목록
-        bsns_year (str): 사업연도 (예: 2025)
+        bsns_year (str): 사업연도 (예: 2024)
         reprt_code (str): 보고서 코드 (예: 11011: 사업보고서)
         idx_cl_code (str): 지표분류코드 (M210000: 수익성지표, M220000: 안정성지표, M230000: 성장성지표, M240000: 활동성지표)
 

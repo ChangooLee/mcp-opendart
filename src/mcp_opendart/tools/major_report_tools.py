@@ -21,8 +21,8 @@ def get_asset_transfer(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020018
     """
@@ -49,8 +49,8 @@ def get_bankruptcy(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020019
     """
@@ -77,8 +77,8 @@ def get_business_suspension(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020020
     """
@@ -105,8 +105,8 @@ def get_rehabilitation(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020021
     """
@@ -133,8 +133,8 @@ def get_dissolution(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020022
     """
@@ -161,8 +161,8 @@ def get_paid_in_capital_increase(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020023
     """
@@ -189,8 +189,8 @@ def get_free_capital_increase(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020024
     """
@@ -217,8 +217,8 @@ def get_paid_free_capital_increase(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020025
     """
@@ -245,8 +245,8 @@ def get_capital_reduction(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020026
     """
@@ -273,8 +273,8 @@ def get_creditor_management(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020027
     """
@@ -301,8 +301,8 @@ def get_lawsuit(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020028
     """
@@ -329,8 +329,8 @@ def get_foreign_listing_decision(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020029
     """
@@ -357,8 +357,8 @@ def get_foreign_delisting_decision(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020030
     """
@@ -385,8 +385,8 @@ def get_foreign_listing(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020031
     """
@@ -413,8 +413,8 @@ def get_foreign_delisting(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020032
     """
@@ -441,8 +441,8 @@ def get_convertible_bond(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020033
     """
@@ -469,8 +469,8 @@ def get_bond_with_warrant(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020034
     """
@@ -497,8 +497,8 @@ def get_exchangeable_bond(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020035
     """
@@ -525,8 +525,8 @@ def get_creditor_management_termination(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020036
     """
@@ -553,8 +553,8 @@ def get_write_down_bond(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020037
     """
@@ -581,8 +581,8 @@ def get_treasury_stock_acquisition(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020038
     """
@@ -609,8 +609,8 @@ def get_treasury_stock_disposal(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020039
     """
@@ -637,8 +637,8 @@ def get_treasury_stock_trust_contract(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020040
     """
@@ -665,8 +665,8 @@ def get_treasury_stock_trust_termination(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020041
     """
@@ -693,8 +693,8 @@ def get_business_acquisition(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020042
     """
@@ -721,8 +721,8 @@ def get_business_transfer(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020043
     """
@@ -749,8 +749,8 @@ def get_tangible_asset_acquisition(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020044
     """
@@ -777,8 +777,8 @@ def get_tangible_asset_transfer(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020045
     """
@@ -805,8 +805,8 @@ def get_other_corp_stock_acquisition(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020046
     """
@@ -833,8 +833,8 @@ def get_other_corp_stock_transfer(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020047
     """
@@ -861,8 +861,8 @@ def get_stock_related_bond_acquisition(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020048
     """
@@ -889,8 +889,8 @@ def get_stock_related_bond_transfer(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020049
     """
@@ -917,8 +917,8 @@ def get_merger(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020050
     """
@@ -945,8 +945,8 @@ def get_division(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020051
     """
@@ -973,8 +973,8 @@ def get_division_merger(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020052
     """
@@ -1001,8 +1001,8 @@ def get_stock_exchange(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS005&apiId=2020053
     """

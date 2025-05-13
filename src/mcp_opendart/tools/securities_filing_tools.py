@@ -22,8 +22,8 @@ def get_equity(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020054
     """
@@ -50,8 +50,8 @@ def get_debt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020055
     """
@@ -78,8 +78,8 @@ def get_depository_receipt(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020056
     """
@@ -106,8 +106,8 @@ def get_merger_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020057
     """
@@ -134,8 +134,8 @@ def get_stock_exchange_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020058
     """
@@ -162,8 +162,8 @@ def get_division_report(
 
     Args:
         corp_code (str): 고유번호 (8자리)
-        bgn_de (str): 검색시작 접수일자 (예: 20250101)
-        end_de (str): 검색종료 접수일자 (예: 20251231)
+        bgn_de (str): 검색시작 접수일자 (예: 20240101)
+        end_de (str): 검색종료 접수일자 (예: 20241231)
 
     참고: https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS006&apiId=2020059
     """

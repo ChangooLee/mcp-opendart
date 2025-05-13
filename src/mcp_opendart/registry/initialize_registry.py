@@ -59,7 +59,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -89,7 +89,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -135,7 +135,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -164,7 +164,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -197,7 +197,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도(선택, 예: 2025)"
+                    "description": "사업연도(선택, 예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -239,7 +239,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -268,7 +268,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -298,7 +298,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -328,7 +328,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -359,11 +359,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "start_date": {
                     "type": "string",
-                    "description": "검색 시작일 (예: 20250101)"
+                    "description": "검색 시작일 (예: 20240101)"
                 },
                 "end_date": {
                     "type": "string",
-                    "description": "검색 종료일 (예: 20251231)"
+                    "description": "검색 종료일 (예: 20241231)"
                 }
             },
             "required": ["corp_code"]
@@ -391,11 +391,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "start_date": {
                     "type": "string",
-                    "description": "검색 시작일 (예: 20250101)"
+                    "description": "검색 시작일 (예: 20240101)"
                 },
                 "end_date": {
                     "type": "string",
-                    "description": "검색 종료일 (예: 20251231)"
+                    "description": "검색 종료일 (예: 20241231)"
                 }
             },
             "required": ["corp_code"]
@@ -421,11 +421,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -452,11 +452,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -483,11 +483,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -513,11 +513,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -545,11 +545,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -576,11 +576,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -607,11 +607,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -632,11 +632,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -665,11 +665,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -697,11 +697,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -730,11 +730,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -762,11 +762,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -793,11 +793,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -824,11 +824,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -855,11 +855,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -887,11 +887,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -919,11 +919,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -951,11 +951,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -982,11 +982,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1013,11 +1013,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1045,11 +1045,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1077,11 +1077,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1108,11 +1108,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1138,11 +1138,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1168,11 +1168,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1197,11 +1197,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1226,11 +1226,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1255,11 +1255,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1284,11 +1284,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1313,11 +1313,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1342,11 +1342,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1371,11 +1371,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1400,11 +1400,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1429,11 +1429,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1458,11 +1458,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1487,11 +1487,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1516,11 +1516,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1545,11 +1545,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1574,11 +1574,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1604,11 +1604,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1634,11 +1634,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1664,11 +1664,11 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bgn_de": {
                     "type": "string",
-                    "description": "검색 시작 접수일자 (예: 20250101)"
+                    "description": "검색 시작 접수일자 (예: 20240101)"
                 },
                 "end_de": {
                     "type": "string",
-                    "description": "검색 종료 접수일자 (예: 20251231)"
+                    "description": "검색 종료 접수일자 (예: 20241231)"
                 }
             },
             "required": ["corp_code", "bgn_de", "end_de"]
@@ -1694,7 +1694,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1724,7 +1724,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1754,7 +1754,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1783,7 +1783,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1812,7 +1812,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1841,7 +1841,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1871,7 +1871,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1901,7 +1901,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1931,7 +1931,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1963,7 +1963,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -1993,7 +1993,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2023,7 +2023,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2053,7 +2053,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2083,7 +2083,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2113,7 +2113,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2142,7 +2142,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2172,7 +2172,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2201,7 +2201,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2231,7 +2231,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2261,7 +2261,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2291,7 +2291,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2321,7 +2321,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2351,7 +2351,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
@@ -2381,7 +2381,7 @@ def initialize_registry() -> ToolRegistry:
                 },
                 "bsns_year": {
                     "type": "string",
-                    "description": "사업연도 (예: 2025)"
+                    "description": "사업연도 (예: 2024)"
                 },
                 "reprt_code": {
                     "type": "string",
